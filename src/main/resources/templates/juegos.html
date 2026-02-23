@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+	<head>
+		 <meta charset="UTF-8">
+		 <title>Juegos</title>
+	</head>
+	<body>
+		<table>
+		       <thead>
+		           <tr>
+		               <th>Nombre </th>
+		               <th>Genero</th>
+		           </tr>
+		       </thead>
+		       <tbody>
+		           <tr th:each="juego : ${juego}">
+		               <td th:text="${juego.nombre}">Nombre </td>
+		               <td th:text="${juego.genero}">Genero</td>
+					   <td th:text="${juego.equiposParticipantes}">equipos</td>
+
+		           </tr>
+		       </tbody>
+		   </table>
+	</body>
+</html>

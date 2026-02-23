@@ -1,0 +1,11 @@
+Yo creo la base de datos desde comandos con Docker 
+Se introduce esto en una terminal.
+
+
+docker run -d --name mysql-spring -p 3307:3306 \
+-e MYSQL_ROOT_PASSWORD=root1234 \
+-e MYSQL_DATABASE=rendonspringboot \
+-e MYSQL_USER=uSpring \
+-e MYSQL_PASSWORD=uSpring1234 \
+-v mysql_data:/var/lib/mysql \
+mysql:9.5

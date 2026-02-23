@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+	<head>
+		 <meta charset="UTF-8">
+		 <title>Entrenadores</title>
+	</head>
+	<body>
+		<table>
+		       <thead>
+		           <tr>
+		               <th>Nombre </th>
+		               <th>Experiencia</th>
+		           </tr>
+		       </thead>
+		       <tbody>
+		           <tr th:each="entrenador : ${entrenador}">
+		               <td th:text="${entrenador.nombre}">Nombre </td>
+		               <td th:text="${entrenador.experiencia}">Experiencia</td>
+		           </tr>
+		       </tbody>
+		   </table>
+	</body>
+</html>
