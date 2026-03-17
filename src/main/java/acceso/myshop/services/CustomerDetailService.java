@@ -16,10 +16,10 @@ public class CustomerDetailService  implements UserDetailsService {
    @Autowired
    private UsuarioRepository repoUsuario;
    @Override
-   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-       Usuario user = repoUsuario.findByNombre(username);
+   public UserDetails loadUserByUsername(String usuario) throws UsernameNotFoundException {
+       Usuario user = repoUsuario.findByUsuario(usuario);
        if (user == null) {
-           throw new UsernameNotFoundException("User Not Found with username: " + username);
+           throw new UsernameNotFoundException("User Not Found with username: " + usuario);
        }
        return new org.springframework.security.core.userdetails.User(
                user.getUsuario(),

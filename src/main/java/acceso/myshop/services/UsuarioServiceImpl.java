@@ -16,16 +16,16 @@ public class UsuarioServiceImpl implements UsuarioService {
 	private UsuarioRepository usuarioRepository;
 	
 	@Override
-   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-       Usuario usuario = usuarioRepository.findByNombre(username);
+   public UserDetails loadUserByUsername(String u) throws UsernameNotFoundException {
+       Usuario usuario = usuarioRepository.findByUsuario(u);
        if (usuario == null) {
-           throw new UsernameNotFoundException("Usuario no encontrado: " + username);
+           throw new UsernameNotFoundException("Usuario no encontrado: " + u);
        }
        return new org.springframework.security.core.userdetails.User(usuario.getUsuario(), usuario.getClave(), new ArrayList<>());
    }
 	@Override
 	public boolean existsByNombre(String nombre) {
-		return usuarioRepository.existsByNombre(nombre);
+		return usuarioRepository.existsByUsuario(nombre);
 	}
 	public void saveUsuario(Usuario usuario) {
 	    usuarioRepository.save(usuario);

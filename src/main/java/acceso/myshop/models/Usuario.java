@@ -23,5 +23,6 @@ public class Usuario {
 	private Long id;
 	@Column(unique = true)
 	private String usuario;
+	
 	private String clave;
 }
