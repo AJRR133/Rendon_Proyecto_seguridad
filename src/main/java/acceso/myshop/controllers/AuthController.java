@@ -37,4 +37,14 @@ public class AuthController {
 		UserDetails userDetails = (UserDetails) authentication.getPrincipal();
 		return jwtUtils.generateToken(userDetails.getUsername());
 	}
+	
+	@PostMapping("/nuevousuario")
+	public String registerUser(@RequestBody Usuario user) {
+	    if (usuarioService.existsByNombre(user.getUsuario())) {
+	        return "Error: Username is already taken!";
+	    }
+	    Usuario newUser = new Usuario(null, user.getUsuario(), encoder.encode(user.getClave()));
+	    usuarioService.saveUsuario(newUser);
+	    return "User registered successfully!";
+	}
 }
